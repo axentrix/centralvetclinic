@@ -6,11 +6,11 @@ html, body {
 }
 body {
     font-family: "Rubik", "Segoe UI", "Helvetica Neue";
-    
+    background:@bgcolor url("../images/bodybg.svg") 100% 10% no-repeat;
     overflow-x: hidden;
     width: 100%;
-    color:@bodytext;
-   background:@bgcolor;
+    color: @bodytext;
+   
 }
 a:hover, a:focus{
 
@@ -706,7 +706,7 @@ main {
     min-height: 100px !important;
     width: 100%;
     border-radius: 12px;
-    box-shadow: 0 0 0.875rem 0 rgba(0, 0, 0, 0.65);
+    box-shadow: 0 0 0.275rem 0 rgba(0, 0, 0, 0.25);
     h2{
         font-size:24px;
         color:@darkbg;
@@ -793,7 +793,7 @@ div.scrolling-limit {
     background-color: @greybg;
     overflow: hidden;
     white-space: nowrap;
-    z-index: 999;
+    z-index: 6;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1005,28 +1005,171 @@ position:relative;
     }
 }
 }
-
-
-#searchbar {
+body.noscroll {
+    overflow: hidden;
+    height: 100%;
+}
+form#howCanWeHelpYou {
+    transition: ease 1s;
+    position: absolute;
     background: white;
     height: 50px;
     box-shadow: 0px 0px 18px -5px rgba(0,0,0,0.75);
-    color:@bodytext;
-    position:absolute;
-    top:50px;
-    width:30%;
-    z-index:44;
-    left:50%;
-    margin-left:-15%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-radius:80px;
+    color: @bodytext;
+    position: absolute;
+    top: 50px;
+    
+    z-index: 44;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 40%;
+    
+    overflow: hidden;
+    z-index: 800;
 
+
+    &.sticky {
+        transition: ease 1s;
+        position: fixed;
+       
+        bottom: auto;
+        right: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        width: 70%;
+        max-width: 945px;
+        overflow: hidden;
+        z-index: 800000;
+        top: 30px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        height: 60px;
+        padding-right: 100px;
+        padding-left: 80px;
+        border: solid 0px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+        font-size: 24px;
+        font-weight: 500;
+        color: #092c74;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+
+
+
+        &:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+
+    button {
+        margin-right: 20px;
+        outline: none;
+        border: none;
+        background: none;
+    }
+}
+.popular-search {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 200px;
+    overflow: hidden;
+}
+.searchWrapper .close {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 60px;
+    /* background: red; */
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    line-height: 30px;
+    color:@white;
+    font-weight: 700;
+    cursor: pointer;
+}
+.searchWrapper .close.open {
+    display: block;
 }
 
+
+.searchWrapper {
+    display: none;
+    transition: ease 0.25s;
+    width: 100%;
+    height: 100%;
+    background-color: @thirdiarycolor;
+  
+    position: static;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    overflow-y: auto;
+
+
+    h2{
+        color:@white;
+    }
+}
+
+.searchWrapper.open {
+    display: block;
+    z-index: 7;
+}
+.searchWrapper.animate {
+    position: fixed;
+    transition: ease 0.25s;
+    opacity: 0.97;
+}
+
+
+form#howCanWeHelpYou .placeholder.disappear {
+    display: none;
+    transition: ease 0.1s;
+    top: 8px;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+
+form#howCanWeHelpYou .placeholder {
+    transition: ease 0.1s;
+    position: absolute;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+    line-height: 60px;
+    color: #092c74;
+    width: 100%;
+    background: transparent;
+    border-radius: 30px;
+    text-indent: 80px;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    cursor: text;
+}
+
+
 #languages {
-    background: @thirdiarycolor;
+    background: rgba(1, 34, 76, 0.5);
     position: fixed;
     border-radius: 6px 0 0 6px;
     color: @white;
@@ -1038,6 +1181,19 @@ position:relative;
     right: 0px;
     height: 50px;
     z-index: 10;
+    transition: all 0.2s ease-in-out;
+    ul {li:first-child{
+            padding-left:10px;
+            padding-right:5px;
+
+    }
+
+        }
+    &.closed {
+        transition: all 0.2s ease-in-out;
+        background: @thirdiarycolor;
+        right: -133px;
+    }
 
     ul {
         list-style: none;
@@ -1174,7 +1330,8 @@ z-index:3;
         a {
             position: relative;
             display: flex;
-
+            font-size:1.2em;
+            line-height:1.6em;
 
 
             &:hover {
@@ -1232,8 +1389,52 @@ z-index:3;
 
 
     /*Carousel Services*/
+    .container-fluid{
+        width:90%;
+    }
 
+
+#services {
+
+    .carousel .carousel-control-next-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel .carousel-control-prev-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-control-prev {
+        left: -5%;
+    }
+
+    .carousel-control-next {
+        right: -5%;
+    }
+}
 #carousel-services {
+
+    .card-title a{
+        color:@titlecolor;
+
+
+        &:hover{
+            color:@red !important;
+        }
+    }
+  
+
+
+    .carousel-item {
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+
+    .carousel-item .card {
+        min-height: 85vh !important;
+    }
 
     @media (min-width: 768px) and (max-width: 991px) {
         /* Show 4th slide on md if col-md-4*/
@@ -1375,8 +1576,178 @@ z-index:3;
     , .carousel-control-prev {
         background: @maincolor;
         border-radius: 50%;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
+        top: 50%;
+    }
+
+    .carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+#carousel-popular {
+
+    .card-title a {
+        color: @titlecolor;
+
+
+        &:hover {
+            color: @red !important;
+        }
+    }
+
+
+
+    .carousel-item {
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+
+    
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        /* Show 4th slide on md if col-md-4*/
+        .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+            position: absolute;
+            top: 0;
+            right: -33.3333%; /*change this with javascript in the future*/
+            z-index: -1;
+            display: block;
+            visibility: visible;
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 768px) {
+        /* Show 3rd slide on sm if col-sm-6*/
+        .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
+            position: absolute;
+            top: 0;
+            right: -50%; /*change this with javascript in the future*/
+            z-index: -1;
+            display: block;
+            visibility: visible;
+        }
+    }
+
+    @media (min-width: 576px) {
+        .carousel-item {
+            margin-right: 0;
+        }
+        /* show 2 items */
+        .carousel-inner .active + .carousel-item {
+            display: block;
+        }
+
+        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
+            transition: none;
+        }
+
+        .carousel-inner .carousel-item-next {
+            position: relative;
+            transform: translate3d(0, 0, 0);
+        }
+        /* left or forward direction */
+        .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+        .carousel-item-next.carousel-item-left + .carousel-item,
+        .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
+            position: relative;
+            transform: translate3d(-100%, 0, 0);
+            visibility: visible;
+        }
+        /* farthest right hidden item must be also positioned for animations */
+        .carousel-inner .carousel-item-prev.carousel-item-right {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            display: block;
+            visibility: visible;
+        }
+        /* right or prev direction */
+        .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+        .carousel-item-prev.carousel-item-right + .carousel-item,
+        .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
+            position: relative;
+            transform: translate3d(100%, 0, 0);
+            visibility: visible;
+            display: block;
+            visibility: visible;
+        }
+    }
+    /* MD */
+    @media (min-width: 768px) {
+        /* show 3rd of 3 item slide */
+        .carousel-inner .active + .carousel-item + .carousel-item {
+            display: block;
+        }
+
+        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+            transition: none;
+        }
+
+        .carousel-inner .carousel-item-next {
+            position: relative;
+            transform: translate3d(0, 0, 0);
+        }
+        /* left or forward direction */
+        .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+            position: relative;
+            transform: translate3d(-100%, 0, 0);
+            visibility: visible;
+        }
+        /* right or prev direction */
+        .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+            position: relative;
+            transform: translate3d(100%, 0, 0);
+            visibility: visible;
+            display: block;
+            visibility: visible;
+        }
+    }
+    /* LG */
+    @media (min-width: 991px) {
+        /* show 4th item */
+        .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+            display: block;
+        }
+
+        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+            transition: none;
+        }
+        /* Show 5th slide on lg if col-lg-3 */
+        .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+            position: absolute;
+            top: 0;
+            right: -25%; /*change this with javascript in the future*/
+            z-index: -1;
+            display: block;
+            visibility: visible;
+        }
+        /* left or forward direction */
+        .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+            position: relative;
+            transform: translate3d(-100%, 0, 0);
+            visibility: visible;
+        }
+        /* right or prev direction //t - previous slide direction last item animation fix */
+        .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+            position: relative;
+            transform: translate3d(100%, 0, 0);
+            visibility: visible;
+            display: block;
+            visibility: visible;
+        }
+    }
+
+    .carousel-control-next
+
+    , .carousel-control-prev {
+        background: @maincolor;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
         top: 50%;
     }
 
@@ -1386,13 +1757,12 @@ z-index:3;
     }
 }
 
-
 #statistics {
     background: @greybg;
     .col{
         display:flex;
         flex-direction:column;
-        justify-content:center;
+        justify-content:flex-start;
         align-items:center;
     }
     .imageholder {
@@ -1433,7 +1803,8 @@ z-index:3;
 
 #philosophy {
 
-
+    background:url("../images/philosophybg.svg") 0 0 no-repeat;
+    background-size:contain;
     .col-4 {
         display: flex;
         justify-content: center;
@@ -1469,6 +1840,28 @@ h3 a{
     align-items:center;
 }
 
+
+figure {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow: hidden;
+
+
+    img {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    }
+    figure.over img {
+        -webkit-transform: scale(1.3) !important;
+        transform: scale(1.3) !important;
+        transition: .3s ease-in-out;
+    }
 
 #tour {
 
@@ -1518,9 +1911,10 @@ h3 a{
                 max-width: 80px;
                 height: auto;
                 padding-bottom: 1em;
-                margin-bottom:1em;
-                img{
-                    max-height:70px;
+                margin-bottom: 1em;
+
+                img {
+                    max-height: 70px;
                 }
             }
 
@@ -1544,9 +1938,8 @@ h3 a{
 
                 a {
                     font-weight: bold;
-                    font-size:16px;
-                    position:relative;
-                  
+                    font-size: 16px;
+                    position: relative;
                     color: @white !important;
                     text-align: center;
 
@@ -1582,61 +1975,68 @@ h3 a{
             figure::after {
                 background: linear-gradient(45deg, rgba(50,182,183,0.8) 0%, rgba(0,52,141,0.65) 45%);
             }
+
+
+
+         
+
+          
         }
     }
 }
 
-.tip {
-    position: relative;
-    background-color: @red;
-    height: 54px !important;
-    width: 80px !important;
-    border-radius:6px;
-    display: flex;
-    margin-bottom:2em;
-    .text {
+    .tip {
+        position: relative;
+        background-color: @red;
+        height: 54px !important;
+        width: 80px !important;
+        border-radius: 6px;
+        display: flex;
+        margin-bottom: 2em;
+
+        .text {
+            display: flex !important;
+            color: @white;
+            text-align: center;
+            width: 100%;
+            top: 0px !important;
+            margin-top: 10px;
+            font-size: 1.5em;
+            flex-direction: row !important;
+
+            i {
+                display: inline;
+                padding-right: 10px;
+            }
+        }
+    }
+
+    .tip:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -10px;
+        width: 0;
+        height: 0;
+        border-top: solid 10px @red;
+        border-left: solid 10px transparent;
+        border-right: solid 10px transparent;
+    }
+
+    span.facebook {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background: @white;
         display: flex !important;
-        color: @white;
+        justify-content: center;
+        align-items: center !important;
         text-align: center;
-        width: 100%;
-        top:0px !important;
-        margin-top:10px;
-        font-size:1.5em;
-        flex-direction: row !important;
+        position: relative;
 
         i {
-            display: inline;
-            padding-right: 10px;
+            font-size: 1.5em;
+            color: @maincolor !important;
         }
     }
-}
-
-.tip:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -10px;
-    width: 0;
-    height: 0;
-    border-top: solid 10px @red;
-    border-left: solid 10px transparent;
-    border-right: solid 10px transparent;
-  
-
-}
-
-span.facebook {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background: @white;
-    display: flex !important;
-    justify-content: center;
-    align-items: center !important;
-    text-align:center;
-    position:relative;
-    i {font-size:1.5em;
-        color: @maincolor !important;
-    }
-}
