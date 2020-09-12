@@ -1,0 +1,11 @@
+<svg id="ico11" xmlns="http://www.w3.org/2000/svg" width="113" height="120.593" viewBox="0 0 113 120.593">
+  <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(28 87.593)" fill="none" stroke="#fff" stroke-width="3">
+    <ellipse cx="29" cy="9.5" rx="29" ry="9.5" stroke="none"/>
+    <ellipse cx="29" cy="9.5" rx="27.5" ry="8" fill="none"/>
+  </g>
+  <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(0 81.593)" fill="none" stroke="#fff" stroke-width="3">
+    <ellipse cx="56.5" cy="19.5" rx="56.5" ry="19.5" stroke="none"/>
+    <ellipse cx="56.5" cy="19.5" rx="55" ry="18" fill="none"/>
+  </g>
+  <path id="Icon_awesome-map-marker-alt" data-name="Icon awesome-map-marker-alt" d="M32.087,93.442C5.023,54.208,0,50.181,0,35.762a35.762,35.762,0,1,1,71.524,0c0,14.419-5.023,18.446-32.087,57.68a4.472,4.472,0,0,1-7.351,0Zm3.675-42.779a14.9,14.9,0,1,0-14.9-14.9A14.9,14.9,0,0,0,35.762,50.663Z" transform="translate(21.191)" fill="#e50019"/>
+</svg>
