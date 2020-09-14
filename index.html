@@ -31,7 +31,7 @@
     <link rel="icon" href="images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 
     <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#F57F20">
-    <link rel="icon" href="images/favicons/favicon.ico">
+    <link rel="icon" href="images/favicons/favicon.png">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Custom styles from Anna -->
@@ -91,13 +91,14 @@
                 <div class="row">
                     <div class="col-12">
                         <nav class="navbar navbar-expand-lg" role="navigation">
-                            <button class="navbar-toggler toggler-example collapsed" type="button" data-toggle="collapse" data-target="#navBarMobile" aria-controls="navBarMobile" aria-expanded="false" aria-label="Toggle navigation">
+                            <button id="navbar-toggler" class="navbar-toggler toggler-example collapsed" type="button" data-toggle="collapse" data-target="#navBarMobile" aria-controls="navBarMobile" aria-expanded="false" aria-label="Toggle navigation">
                                 <div id="nav-icon">
                                     <span></span><span></span><span></span>
                                 </div>
                             </button>
-                            <a class="avatar" href="" id="search-mobile"><i class="fa fa-search"></i></a>
                             <a class="navbar-brand" href="index.html"><img border=0 src="images/logo.svg" height="100%"></a>
+                            <a class="avatar" href="#" id="search-mobile"><i class="fa fa-search"></i></a>
+
 
                             <div id="navBarMobile" class="navbar">
 
@@ -108,8 +109,9 @@
                                         <h4>Услуги</h4>
                                         <ul>
 
-                                           
-                                               <li> <a href="#">
+
+                                            <li>
+                                                <a href="#">
                                                     Прегледи
                                                 </a>
                                             </li>
@@ -832,7 +834,7 @@
 
                     </div>
         </section>
-        <div class="searchWrapper">
+        <div class="searchWrapper" id="searchWrapper">
             <div class="container popular-search">
                 <section class="popularSearchContent row justify-content-center">
                     <h2 class="text-center mt-4 mb-8">Най-разглеждани теми</h2>

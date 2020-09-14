@@ -43,6 +43,7 @@ $(document).ready(function () {
 
 
     function homePageSearch(field) {
+     
         if ($(field).length > 0) {
             $(field).focus(function () {
                 console.log("I am focused");
@@ -52,7 +53,7 @@ $(document).ready(function () {
                         .addClass("disappear");
 
                     $(".searchWrapper").addClass("open");
-
+                    
                     setTimeout(function () { }, 500);
                     $(".searchWrapper .close").addClass("open");
                     $(".searchWrapper").addClass("animate");
@@ -108,8 +109,40 @@ $(document).ready(function () {
         $("#search").val("");
     }
     homePageSearch("form#howCanWeHelpYou .hasPlaceHolder");
-    homePageSearch("#search-mobile");
+  
+    $('#search-mobile').on('click', function (e) {
 
+        e.preventDefault();
+        $("this").addClass("disappear");
+        $("#searchWrapper").addClass("open");
+        $("body").addClass("noscroll");
+    
+        $("#searchWrapper .close").addClass("open");
+        $("#searchWrapper").addClass("animate");
+        $("#howCanWeHelpYou.content").removeClass("hide");
+        $("#howCanWeHelpYou").addClass("sticky");
+
+      
+    
+
+    })
+
+
+    if ($("#sidebar").length) {
+       
+        $("#side-menu a").click(function (e) {
+        
+            $("#side-menu .collapsible-body").slideUp();
+
+                if (!$(this).next().is(":visible")) {
+                    $(this).next().slideDown();
+                  
+            }
+            $(this).toggleClass("open");
+                e.stopPropagation();
+           
+        });
+    }
     
 })
 
