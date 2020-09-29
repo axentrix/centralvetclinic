@@ -85,7 +85,8 @@ $(document).ready(function () {
                 }
             });
 
-            $(".searchWrapper .close").click(function () {
+            $(".close").on('click', function () {
+                
                 closeSearch();
             });
 
@@ -95,6 +96,16 @@ $(document).ready(function () {
         }
         return this;
     }
+
+    $(".close").on('click', function () {
+
+        closeSearch();
+    });
+
+    $(".searchWrapper").click(function () {
+        $("#searchArea").removeClass("open");
+    });
+
 
     function closeSearch() {
         $("body").removeClass("noscroll");
@@ -114,19 +125,34 @@ $(document).ready(function () {
 
         e.preventDefault();
         $("this").addClass("disappear");
-        $("#searchWrapper").addClass("open");
+        $(".searchWrapper").addClass("open");
         $("body").addClass("noscroll");
-    
-        $("#searchWrapper .close").addClass("open");
-        $("#searchWrapper").addClass("animate");
+
+        $(".searchWrapper .close").addClass("open");
+        $(".searchWrapper").addClass("animate");
         $("#howCanWeHelpYou.content").removeClass("hide");
         $("#howCanWeHelpYou").addClass("sticky");
 
+
+
+
+    });
+    $('#search-top').on('click', function (e) {
+
+        e.preventDefault();
       
-    
+        $(".searchWrapper").addClass("open");
+        $("body").addClass("noscroll");
 
-    })
+        $(".searchWrapper .close").addClass("open");
+        $(".searchWrapper").addClass("animate");
+        $("#howCanWeHelpYou.content").removeClass("hide");
+        $("#howCanWeHelpYou").addClass("sticky");
 
+
+
+
+    });
 
     if ($("#sidebar").length) {
        
