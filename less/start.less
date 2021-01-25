@@ -11,7 +11,7 @@ body {
     overflow-x: hidden;
     width: 100%;
     color: @bodytext;
-   
+   font-size:14px;
 }
 a:hover, a:focus{
 
@@ -295,7 +295,7 @@ h5 {
 
 footer {
     background: @darkbg;
-
+    color:@white;
     .col-md-3 {
         flex-wrap: wrap;
     }
@@ -309,6 +309,9 @@ footer {
         list-style: none;
         margin: 0;
         padding: 0;
+        li{
+            color:@white;
+        }
     }
 
     #footer-menus {
@@ -588,7 +591,7 @@ table{
 
 /* Centralvetclinic*/
 
-div.scrolling-limit {
+div.scrolling-limit, .scrolling-limit-no{
     width: 100%;
     min-height: 44px;
     top: 0;
@@ -669,16 +672,26 @@ div.scrolling {
 
     .container {
         align-self: stretch;
-
-        display:flex;
-        justify-content:center;
-        align-items:stretch;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
     }
 
-    .col:nth-child(3){
-        padding-right:0;
-        align-self:stretch;
+    .col:nth-child(1) {
+        ul {
+
+            li:after {
+                content: "" !important;
+                display: none !important;
+            }
+        }
     }
+
+    .col:nth-child(3) {
+        padding-right: 0;
+        align-self: center;
+    }
+
     .row {
         align-items: center;
     }
@@ -698,7 +711,7 @@ div.scrolling {
             li {
                 position: relative;
                 display: inline-flex;
-                padding-left: 0.5em;
+                padding-left: 3px;
 
                 &:after {
                     display: none !important;
@@ -706,7 +719,8 @@ div.scrolling {
 
                 a {
                     text-transform: none;
-                    color:@white;
+                    color: @white;
+
                     &:hover {
                         color: @maincolor !important;
                     }
@@ -725,7 +739,7 @@ div.scrolling {
 
         li {
             display: inline-flex;
-            padding-left: 10px;
+            padding-left: 4px;
 
             h4 {
                 font-size: 1em;
@@ -734,6 +748,9 @@ div.scrolling {
                 white-space: pre;
                 line-height: 1em !important;
                 margin-top: 2px;
+                background: darken(@maincolor, 25%);
+                border-radius: 3px;
+                padding:2px;
             }
 
 
@@ -746,7 +763,14 @@ div.scrolling {
                 content: "|";
                 display: inline-flex;
                 color: @white;
-                padding-left: 10px;
+                padding-left: 4px;
+            }
+
+          
+
+            &:last-child::after {
+                content: "" !important;
+                display: none;
             }
         }
     }
@@ -2887,4 +2911,48 @@ li#tour{bottom:0px;
  width:20px;
  height:20px;
  top:-5px;
+}
+
+div#instagram {
+    top: 380px;
+}
+
+#facebook, #instagram {
+    z-index: 11;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px 0 0 6px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 18px -5px rgba(0, 0, 0, 0.75);
+    top: 320px;
+    right: 0px;
+    background: #00357b;
+    position: fixed;
+}
+#languages1 a, #instagram a{
+    color:@white;
+}
+#online-payment a:hover, #online-payment a:focus, #languages1 a:hover, #languages1 a:focus, #instagram a:hover, #instagram a:focus,
+#facebook a:hover, #facebook a:focus {
+    color: @soft !important;
+}
+#languages1{
+    align-items:center;
+}
+
+.card-text ul{
+    margin:5px;
+    padding:12px;
+    color:@bodytext;
+}
+
+#carousel-services-foreign{
+    flex-wrap:wrap;
+
+    .col-md-4{flex-direction:column;
+        align-self:stretch;
+    }
 }

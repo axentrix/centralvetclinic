@@ -4,28 +4,28 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: local('Noto Serif Italic'), local('NotoSerif-Italic'), url(https://fonts.gstatic.com/s/notoserif/v9/ga6Kaw1J5X9T9RW6j9bNfFIWbQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/notoserif/v9/ga6Kaw1J5X9T9RW6j9bNfFIWbQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Noto Serif';
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: local('Noto Serif Bold Italic'), local('NotoSerif-BoldItalic'), url(https://fonts.gstatic.com/s/notoserif/v9/ga6Vaw1J5X9T9RW6j9bNfFIu0RWedA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/notoserif/v9/ga6Vaw1J5X9T9RW6j9bNfFIu0RWedA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Noto Serif';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Noto Serif'), local('NotoSerif'), url(https://fonts.gstatic.com/s/notoserif/v9/ga6Iaw1J5X9T9RW6j9bNTFA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/notoserif/v9/ga6Iaw1J5X9T9RW6j9bNTFA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Noto Serif';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Noto Serif Bold'), local('NotoSerif-Bold'), url(https://fonts.gstatic.com/s/notoserif/v9/ga6Law1J5X9T9RW6j9bNdOwzTRA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/notoserif/v9/ga6Law1J5X9T9RW6j9bNdOwzTRA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Rubik';
@@ -521,6 +521,7 @@ body {
   overflow-x: hidden;
   width: 100%;
   color: #000000;
+  font-size: 14px;
 }
 a:hover,
 a:focus {
@@ -757,6 +758,7 @@ h5 {
 }
 footer {
   background: #120e26;
+  color: #ffffff;
 }
 footer .col-md-3 {
   flex-wrap: wrap;
@@ -769,6 +771,9 @@ footer ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+footer ul li {
+  color: #ffffff;
 }
 footer #footer-menus ul {
   list-style: none;
@@ -976,7 +981,8 @@ table h4 {
   text-align: center;
 }
 /* Centralvetclinic*/
-div.scrolling-limit {
+div.scrolling-limit,
+.scrolling-limit-no {
   width: 100%;
   min-height: 44px;
   top: 0;
@@ -1050,9 +1056,13 @@ div.scrolling p:before {
   justify-content: center;
   align-items: stretch;
 }
+.infobar .col:nth-child(1) ul li:after {
+  content: "" !important;
+  display: none !important;
+}
 .infobar .col:nth-child(3) {
   padding-right: 0;
-  align-self: stretch;
+  align-self: center;
 }
 .infobar .row {
   align-items: center;
@@ -1071,7 +1081,7 @@ div.scrolling p:before {
 .infobar nav ul li {
   position: relative;
   display: inline-flex;
-  padding-left: 0.5em;
+  padding-left: 3px;
 }
 .infobar nav ul li:after {
   display: none !important;
@@ -1093,7 +1103,7 @@ div.scrolling p:before {
 }
 .infobar ul li {
   display: inline-flex;
-  padding-left: 10px;
+  padding-left: 4px;
 }
 .infobar ul li h4 {
   font-size: 1em;
@@ -1102,6 +1112,9 @@ div.scrolling p:before {
   white-space: pre;
   line-height: 1em !important;
   margin-top: 2px;
+  background: #002c66;
+  border-radius: 3px;
+  padding: 2px;
 }
 .infobar ul li:first-child::after {
   /*      content: "" !important;*/
@@ -1110,7 +1123,11 @@ div.scrolling p:before {
   content: "|";
   display: inline-flex;
   color: #ffffff;
-  padding-left: 10px;
+  padding-left: 4px;
+}
+.infobar ul li:last-child::after {
+  content: "" !important;
+  display: none;
 }
 #online-payment {
   background: #032b60;
@@ -2803,4 +2820,52 @@ li#tour {
   width: 20px;
   height: 20px;
   top: -5px;
+}
+div#instagram {
+  top: 380px;
+}
+#facebook,
+#instagram {
+  z-index: 11;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px 0 0 6px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 18px -5px rgba(0, 0, 0, 0.75);
+  top: 320px;
+  right: 0px;
+  background: #00357b;
+  position: fixed;
+}
+#languages1 a,
+#instagram a {
+  color: #ffffff;
+}
+#online-payment a:hover,
+#online-payment a:focus,
+#languages1 a:hover,
+#languages1 a:focus,
+#instagram a:hover,
+#instagram a:focus,
+#facebook a:hover,
+#facebook a:focus {
+  color: #8acfcf !important;
+}
+#languages1 {
+  align-items: center;
+}
+.card-text ul {
+  margin: 5px;
+  padding: 12px;
+  color: #000000;
+}
+#carousel-services-foreign {
+  flex-wrap: wrap;
+}
+#carousel-services-foreign .col-md-4 {
+  flex-direction: column;
+  align-self: stretch;
 }
